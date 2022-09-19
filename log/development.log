@@ -3996,3 +3996,261 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.4ms | Allocations: 5673)
 
 
+Started GET "/articles/new" for ::1 at 2022-09-18 19:51:30 +1000
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mArticle Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:13:in `public_count'
+  Rendered articles/_header.html.erb (Duration: 3.1ms | Allocations: 692)
+  Rendered articles/_form.html.erb (Duration: 3.9ms | Allocations: 1800)
+  Rendered articles/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2787)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4969)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.6ms | Allocations: 5339)
+
+
+Started GET "/articles/new" for ::1 at 2022-09-18 19:51:36 +1000
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  [1m[36mArticle Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:13:in `public_count'
+  Rendered articles/_header.html.erb (Duration: 1.9ms | Allocations: 692)
+  Rendered articles/_form.html.erb (Duration: 2.7ms | Allocations: 1317)
+  Rendered articles/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2126)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4308)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms | Allocations: 4595)
+
+
+Started GET "/" for ::1 at 2022-09-18 19:51:37 +1000
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:13:in `public_count'
+  Rendered articles/_header.html.erb (Duration: 2.1ms | Allocations: 692)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:2
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1390)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3742)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.4ms | Allocations: 4013)
+
+
+Started GET "/articles/2" for ::1 at 2022-09-18 19:51:38 +1000
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mArticle Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:13:in `public_count'
+  Rendered articles/_header.html.erb (Duration: 1.3ms | Allocations: 691)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered comments/_form.html.erb (Duration: 3.6ms | Allocations: 1617)
+  Rendered articles/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3591)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 5765)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 6555)
+
+
+Started DELETE "/articles/2" for ::1 at 2022-09-18 19:51:45 +1000
+Processing by ArticlesController#destroy as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:41:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:42:in `destroy'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/controllers/articles_controller.rb:42:in `destroy'
+  [1m[36mArticle Destroy (0.5ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/articles_controller.rb:42:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:42:in `destroy'
+Redirected to http://localhost:3000/
+Completed 303 See Other in 10ms (ActiveRecord: 2.1ms | Allocations: 3250)
+
+
+Started GET "/" for ::1 at 2022-09-18 19:51:45 +1000
+Processing by ArticlesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:13:in `public_count'
+  Rendered articles/_header.html.erb (Duration: 2.0ms | Allocations: 692)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:2
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1385)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3722)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 4039)
+
+
+Started GET "/" for ::1 at 2022-09-19 12:34:32 +1000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:13:in `public_count'
+  Rendered articles/_header.html.erb (Duration: 2.5ms | Allocations: 2845)
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:2
+  Rendered articles/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 8160)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 43329)
+Completed 200 OK in 30ms (Views: 24.8ms | ActiveRecord: 0.6ms | Allocations: 49007)
+
+
+Started GET "/" for ::1 at 2022-09-19 12:35:07 +1000
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:13:in `public_count'
+  Rendered articles/_header.html.erb (Duration: 2.3ms | Allocations: 1061)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:2
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2013)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4805)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 5701)
+
+
+Started GET "/" for ::1 at 2022-09-19 12:35:15 +1000
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/_header.html.erb (Duration: 0.7ms | Allocations: 295)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:2
+  Rendered articles/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1332)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4107)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 4966)
+
+
+Started GET "/articles/new" for ::1 at 2022-09-19 12:35:18 +1000
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x0000000109c14b48 /Users/harrysmith/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/http_authentication.rb:79> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 122)
+
+
+Started GET "/articles/new" for ::1 at 2022-09-19 12:35:22 +1000
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_header.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered articles/_form.html.erb (Duration: 24.1ms | Allocations: 12423)
+  Rendered articles/new.html.erb within layouts/application (Duration: 25.8ms | Allocations: 12825)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 15115)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 15557)
+
+
+Started POST "/articles" for ::1 at 2022-09-19 12:36:17 +1000
+Processing by ArticlesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"New direction", "body"=>"Decided to reformat this blog site to start storing ideas for websites/apps. Might be a good way to keep track of them and motivate me to think about them more so I can come back here when I have the skills to build them. \n", "status"=>"public"}, "commit"=>"Create Article"}
+Filter chain halted as #<Proc:0x0000000109c14b48 /Users/harrysmith/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-7.0.4/lib/action_controller/metal/http_authentication.rb:79> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/articles" for ::1 at 2022-09-19 12:36:17 +1000
+Processing by ArticlesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"New direction", "body"=>"Decided to reformat this blog site to start storing ideas for websites/apps. Might be a good way to keep track of them and motivate me to think about them more so I can come back here when I have the skills to build them. \n", "status"=>"public"}, "commit"=>"Create Article"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?)[0m  [["title", "New direction"], ["body", "Decided to reformat this blog site to start storing ideas for websites/apps. Might be a good way to keep track of them and motivate me to think about them more so I can come back here when I have the skills to build them. \n"], ["created_at", "2022-09-19 02:36:17.034501"], ["updated_at", "2022-09-19 02:36:17.034501"], ["status", "public"]]
+  ↳ app/controllers/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:20:in `create'
+Redirected to http://localhost:3000/articles/4
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms | Allocations: 3738)
+
+
+Started GET "/articles/4" for ::1 at 2022-09-19 12:36:17 +1000
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_header.html.erb (Duration: 0.1ms | Allocations: 112)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 32)
+  Rendered comments/_form.html.erb (Duration: 6.5ms | Allocations: 5894)
+  Rendered articles/show.html.erb within layouts/application (Duration: 15.2ms | Allocations: 11700)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 13996)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.6ms | Allocations: 15969)
+
+
+Started GET "/articles/new" for ::1 at 2022-09-19 12:36:19 +1000
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_header.html.erb (Duration: 0.5ms | Allocations: 93)
+  Rendered articles/_form.html.erb (Duration: 2.0ms | Allocations: 1326)
+  Rendered articles/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1540)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3724)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 4064)
+
+
+Started POST "/articles" for ::1 at 2022-09-19 12:41:30 +1000
+Processing by ArticlesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"Teachers Class Directory", "body"=>"The rough idea is to create a blog based spot for teachers to post their lesson plans. This would allow teachers from different schools to collaborate and use each others ideas for interesting lesson plans. \n\nStructure the site so it can be sorted by grade level, subject, interactivity level, complexity level. \n\nTeachers could have ranking systems based on \"likes\" or \"upvotes\" of their lesson plans. They'd then be preferenced when displaying lesson plans as they'd have an established reputation for creating good/interesting lessons. This could also be scored by the number of comments left on the lesson plans by other teachers. \n\nCould also create some functionality to have a chat room/forum for teachers to discuss existing lesson plans or teaching tactics. x\n\nTeacher profiles could include:\n - Name\n - Current status (could display points or maybe a tier based system with rewards, similar to reddit)\n - Schools they have worked at\n - Schools they're currently working at\n\nCould also have profiles for schools themselves. \n\n", "status"=>"public"}, "commit"=>"Create Article"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:20:in `create'
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Teachers Class Directory"], ["body", "The rough idea is to create a blog based spot for teachers to post their lesson plans. This would allow teachers from different schools to collaborate and use each others ideas for interesting lesson plans. \n\nStructure the site so it can be sorted by grade level, subject, interactivity level, complexity level. \n\nTeachers could have ranking systems based on \"likes\" or \"upvotes\" of their lesson plans. They'd then be preferenced when displaying lesson plans as they'd have an established reputation for creating good/interesting lessons. This could also be scored by the number of comments left on the lesson plans by other teachers. \n\nCould also create some functionality to have a chat room/forum for teachers to discuss existing lesson plans or teaching tactics. x\n\nTeacher profiles could include:\n - Name\n - Current status (could display points or maybe a tier based system with rewards, similar to reddit)\n - Schools they have worked at\n - Schools they're currently working at\n\nCould also have profiles for schools themselves. \n\n"], ["created_at", "2022-09-19 02:41:30.933483"], ["updated_at", "2022-09-19 02:41:30.933483"], ["status", "public"]]
+  ↳ app/controllers/articles_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:20:in `create'
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms | Allocations: 2397)
+
+
+Started GET "/articles/5" for ::1 at 2022-09-19 12:41:30 +1000
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_header.html.erb (Duration: 0.2ms | Allocations: 93)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered comments/_form.html.erb (Duration: 2.2ms | Allocations: 1348)
+  Rendered articles/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2480)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4666)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 5415)
+
+
+Started POST "/articles/5/comments" for ::1 at 2022-09-19 12:41:52 +1000
+Processing by CommentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"commenter"=>"Harry", "body"=>"Ok, clearly need to do something about the formatting of the posts here. Looks like none of the formatting was saved ", "status"=>"public"}, "commit"=>"Create Comment", "article_id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at", "status") VALUES (?, ?, ?, ?, ?, ?)[0m  [["commenter", "Harry"], ["body", "Ok, clearly need to do something about the formatting of the posts here. Looks like none of the formatting was saved "], ["article_id", 5], ["created_at", "2022-09-19 02:41:52.607726"], ["updated_at", "2022-09-19 02:41:52.607726"], ["status", "public"]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 8ms (ActiveRecord: 1.4ms | Allocations: 3675)
+
+
+Started GET "/articles/5" for ::1 at 2022-09-19 12:41:52 +1000
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/_header.html.erb (Duration: 0.2ms | Allocations: 111)
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 1.5ms | Allocations: 442)
+  Rendered comments/_form.html.erb (Duration: 1.8ms | Allocations: 1413)
+  Rendered articles/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3152)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 5425)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 6196)
+
+
